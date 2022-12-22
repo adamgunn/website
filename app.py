@@ -40,12 +40,21 @@ def release_read_connection(conn):
 
 @app.route("/")
 def greet():
-    return "<p>Welcome to the backend of my website</p>"
+    return "<p>Welcome to the backend of my website!!!!!!!</p>"
 
 @app.route("/posts")
 def get_posts():
+    conn = get_read_connection()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT * FROM posts
+        """
+    )
+    posts = cur.fetchall()
+    release_read_connection(conn)
     return flask.jsonify({
-        "posts": []
+        "posts": posts
     })
 
 @app.route("/login", methods=['POST'])
