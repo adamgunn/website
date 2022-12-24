@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for, session, abort, Response
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session, abort, Response, json
 import os
 import psycopg2
 import psycopg2.pool
@@ -71,9 +71,9 @@ def get_posts():
     posts = cur.fetchall()
     posts = format_posts(posts)
     release_read_connection(conn)
-    return jsonify({
-        "posts": posts
-    })
+    resp = Response(json.dumps(posts), mimetype='application/json')
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @app.route("/login", methods=['POST'])
 def handle_login():
