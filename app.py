@@ -100,7 +100,6 @@ def handle_login():
         password, db_password_components[1])
     if hashed_password == db_password:
         session['username'] = username
-        print("correct password")
         return redirect(url_for('show_new'))
     else:
         return redirect(url_for('show_login'))
