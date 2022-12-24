@@ -1,0 +1,95 @@
+:root {
+    --c1: #F2DC5D;
+    --c2: #F2A359;
+    --c3: #DB9065;
+    --c4: #A4031F;
+    --c5: #240B36;
+    --fonts: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#new_post_title, #new_post_body {
+    border: 2px solid var(--c2);
+    background-color: var(--c5);
+    padding: 8px;
+    margin: 0.5rem 1rem;
+    font-size: 1rem;
+    color: var(--c2);
+    border-radius: 1rem;
+    outline: none;
+    width: 35rem;
+    transition: all 0.25s;
+    font-family: var(--fonts);
+}
+
+#new_post_title:focus, #new_post_body:focus {
+    border: 4px solid var(--c1);
+    padding: 6px;
+}
+
+#new_post_title {
+    height: 2.5rem;
+}
+
+#new_post_body {
+    height: 20rem;
+    resize: none;
+}
+
+#new_post_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#new_post_header {
+    color: var(--c2);
+    margin: 0;
+}
+
+#new_post_button {
+    background-color: var(--c2);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 10rem;
+    color: var(--c5);
+    transition: all 0.25s;
+}
+
+#new_post_button:hover {
+    cursor: pointer;
+    background-color: var(--c1);
+}
+
+#new_post_button:disabled {
+    background-color: lightslategray;
+    color: darkslategray;
+}
+
+#new_post_button:disabled:hover {
+    cursor: not-allowed;
+}
+
+html, body {
+    background-color: var(--c5);
+    margin: 0;
+    height: 100%;
+    font-family: var(--fonts);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}

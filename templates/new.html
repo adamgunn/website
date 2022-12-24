@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <title>New Blog Post</title>
+</head>
+<body>
+    <form action="/new" method="post" id="new_post_form">
+        <h1 id="new_post_header">Compose new blog post</h1>
+        <input type="text" placeholder="Blog post title" name="title" id="new_post_title" />
+        <textarea name="body" id="new_post_body" cols="30" rows="10" placeholder="Blog post body"></textarea>
+        <input type="submit" value="Create post" id="new_post_button" disabled />
+        <p id="result" style="display: none;"></p>
+    </form>
+    <script src="{{url_for('static', filename='submit.js')}}"></script>
+</body>
+</html>
