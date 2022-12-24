@@ -5,6 +5,7 @@ import psycopg2.pool
 import uuid
 import hashlib
 from dotenv import load_dotenv
+import time
 load_dotenv()
 
 app = Flask(__name__)
@@ -66,6 +67,7 @@ def get_posts():
         """
     )
     posts = cur.fetchall()
+    posts = format_posts(posts)
     release_read_connection(conn)
     return jsonify({
         "posts": posts
@@ -137,6 +139,62 @@ def handle_new():
     return jsonify({
         "msg": "success"
     }), 200
+
+def format_posts(posts):
+    new_posts = []
+    for post in posts:
+        post_id, title, body, created = post
+        new_posts.append({
+            "post_id": post_id,
+            "title": title,
+            "body": body,
+            "created": time.mktime(created.timetuple())
+        })
+    return new_posts
+
+
+@app.route("/delete", methods=['GET'])
+def show_delete():
+    if 'username' not in session or session['username'] != os.environ['ADMIN_USERNAME']:
+        return redirect(url_for('show_login'))
+    conn = get_read_connection()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT * FROM posts
+        """
+    )
+    posts = cur.fetchall()
+    posts = format_posts(posts)
+    release_read_connection(conn)
+    context = {
+        "posts": posts
+    }
+    return render_template('delete.html', **context)
+
+@app.route("/delete", methods=['POST'])
+def handle_delete():
+    if 'username' not in session:
+        return abort(401)
+    if session['username'] != os.environ['ADMIN_USERNAME']:
+        return abort(403)
+    post_id = int(request.form['post_id'])
+    if not post_id:
+        return abort(400)
+    conn = get_write_connection()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        DELETE FROM posts
+        WHERE postid = %s
+        """,
+        (post_id,)
+    )
+    cur.close()
+    conn.commit()
+    release_write_connection(conn)
+    return redirect(url_for('show_delete'))
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080, extra_files=["static/style.css"])

@@ -5,6 +5,7 @@
     --c4: #A4031F;
     --c5: #240B36;
     --fonts: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --nav-height: 3rem;
 }
 
 #new_post_title, #new_post_body {
@@ -40,10 +41,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    flex-grow: 1;
     width: 100%;
     height: 100%;
+    position: absolute;
+    z-index: 0;
 }
 
 #new_post_header {
@@ -74,6 +75,68 @@
 
 #new_post_button:disabled:hover {
     cursor: not-allowed;
+}
+
+.post_title, .post_body {
+    color: var(--c4);
+    margin: 0 0 0.5rem;
+}
+
+.post_body {
+    white-space: pre-line;
+}
+
+.post {
+    background-color: var(--c3);
+    margin: 1rem auto;
+    width: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.delete_post {
+    background-color: var(--c4);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 10rem;
+    color: var(--c3);
+    transition: all 0.25s;
+}
+
+.delete_post:hover {
+    background-color: var(--c5);
+    cursor: pointer;
+}
+
+nav {
+    height: var(--nav-height);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#new_nav {
+    position: absolute;
+    z-index: 1;
+}
+
+nav > a {
+    color: var(--c3);
+    text-decoration: none;
+    transition: all 0.25s;
+    margin: 1rem;
+}
+
+nav > a:hover {
+    color: var(--c1);
+}
+
+.no_posts {
+    color: lightslategray;
+    width: 100%;
+    text-align: center;
 }
 
 html, body {

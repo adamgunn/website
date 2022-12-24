@@ -7,7 +7,7 @@ cmds = \
     CREATE TABLE posts (
         postid SERIAL PRIMARY KEY,
         title VARCHAR(256) NOT NULL,
-        body VARCHAR(1024) NOT NULL,
+        body VARCHAR(8192) NOT NULL,
         created TIMESTAMP DEFAULT NOW()
     )
     """, \
