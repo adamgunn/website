@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Adam Gunn</title>
+    <meta name="description" content="My personal blog." />
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css">
+</head>
+
+<body>
+    <div id="blog_wrapper">
+        <h1 class="page_title">
+            Blog
+        </h1>
+        <div id="blog_posts_wrapper"></div>
+    </div>
+    <script src="{{url_for('static', filename='home.js')}}"></script>
+    <script src="{{url_for('static', filename='blog.js')}}"></script>
+</body>
+
+</html>

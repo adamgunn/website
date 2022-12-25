@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Adam Gunn</title>
+    <meta name="description" content="Welcome to Adam Gunn's website." />
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <div id="magazine_wrapper">
+        <a href="/about" id="about_link">
+          <img
+            class="magazine"
+            id="A1"
+            src="{{url_for('static', filename='images/magazine/letters/A0.png')}}"
+            alt="A"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="D"
+            src="{{url_for('static', filename='images/magazine/letters/D0.png')}}"
+            alt="D"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="A2"
+            src="{{url_for('static', filename='images/magazine/letters/D1.png')}}"
+            alt="A"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="M"
+            src="{{url_for('static', filename='images/magazine/letters/M0.png')}}"
+            alt="M"
+            width="150"
+            height="150"
+          />
+          <br />
+          <img
+            class="magazine"
+            id="G"
+            src="{{url_for('static', filename='images/magazine/letters/G0.png')}}"
+            alt="G"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="U"
+            src="{{url_for('static', filename='images/magazine/letters/U0.png')}}"
+            alt="U"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="N1"
+            src="{{url_for('static', filename='images/magazine/letters/N0.png')}}"
+            alt="N"
+            width="150"
+            height="150"
+          />\
+          <img
+            class="magazine"
+            id="N2"
+            src="{{url_for('static', filename='images/magazine/letters/N1.png')}}"
+            alt="N"
+            width="150"
+            height="150"
+          />
+          <img
+            class="magazine"
+            id="PUNC"
+            src="{{url_for('static', filename='images/magazine/punctuation/0.png')}}"
+            alt="punctuation"
+            width="100"
+            height="100"
+          />
+        </a>
+      </div>
+    </main>
+    <script src="{{url_for('static', filename='home.js')}}"></script>
+  </body>
+</html>

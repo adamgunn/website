@@ -23,7 +23,7 @@ form.onsubmit = (e) => {
     result.style.display = "block";
     button.disabled = true;
     let data = new FormData(form);
-    fetch("/new", {
+    fetch("/api/new", {
         method: "POST",
         body: data,
     }).then(res => {

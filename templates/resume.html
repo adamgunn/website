@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resum&eacute; | Adam Gunn</title>
+    <meta name="description" content="Welcome to Adam Gunn's website." />
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
+  </head>
+
+  <body>
+    <div id="resume_wrapper">
+      <h1 class="page_title">Resum&eacute;</h1>
+      <iframe
+        src="https://docs.google.com/gview?url=https://adamgunn.net/static/resume-adam-gunn.pdf&embedded=true"
+        id="resume_embed"
+        title="Resume PDF Embed"
+      ></iframe>
+    </div>
+    <script src="{{url_for('static', filename='home.js')}}"></script>
+  </body>
+</html>

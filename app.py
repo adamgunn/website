@@ -56,10 +56,14 @@ def hash_password(password, salt=None):
     return "$".join([algorithm, salt, password_hash])
 
 @app.route("/")
-def greet():
-    return "<p>Welcome to the backend of my website!!!!!!!</p>"
+def index():
+    return redirect(url_for('render_static_page', page='home'))
 
-@app.route("/posts")
+@app.route("/api")
+def api_index():
+    return redirect(url_for('show_login'))
+
+@app.route("/api/posts")
 def get_posts():
     conn = get_read_connection()
     cur = conn.cursor()
@@ -75,7 +79,7 @@ def get_posts():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
-@app.route("/login", methods=['POST'])
+@app.route("/api/login", methods=['POST'])
 def handle_login():
     username = request.form['username']
     password = request.form['password']
@@ -105,17 +109,17 @@ def handle_login():
         return redirect(url_for('show_login'))
 
 
-@app.route("/login", methods=['GET'])
+@app.route("/api/login", methods=['GET'])
 def show_login():
     return render_template('login.html')
 
-@app.route("/new", methods=['GET'])
+@app.route("/api/new", methods=['GET'])
 def show_new():
     if 'username' not in session or session['username'] != os.environ['ADMIN_USERNAME']:
         return redirect(url_for('show_login'))
     return render_template('new.html')
 
-@app.route("/new", methods=['POST'])
+@app.route("/api/new", methods=['POST'])
 def handle_new():
     if 'username' not in session:
         return abort(401)
@@ -154,7 +158,7 @@ def format_posts(posts):
     return new_posts
 
 
-@app.route("/delete", methods=['GET'])
+@app.route("/api/delete", methods=['GET'])
 def show_delete():
     if 'username' not in session or session['username'] != os.environ['ADMIN_USERNAME']:
         return redirect(url_for('show_login'))
@@ -173,7 +177,7 @@ def show_delete():
     }
     return render_template('delete.html', **context)
 
-@app.route("/delete", methods=['POST'])
+@app.route("/api/delete", methods=['POST'])
 def handle_delete():
     if 'username' not in session:
         return abort(401)
@@ -195,6 +199,22 @@ def handle_delete():
     conn.commit()
     release_write_connection(conn)
     return redirect(url_for('show_delete'))
+
+@app.route("/<page>")
+def render_static_page(page):
+    pages = [
+        "home",
+        "about",
+        "blog",
+        "portfolio",
+        "resume",
+        "pong",
+        "snowman"
+    ]
+    if page in pages:
+        return render_template(page + ".html")
+    else:
+        return abort(404)
 
 
 if __name__ == "__main__":

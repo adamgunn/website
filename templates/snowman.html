@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowman | Adam Gunn</title>
+    <meta name="description" content="Snowman, also known as Hangman." />
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css">
+</head>
+
+<body>
+    <div id="pong_wrapper">
+        <h1 class="page_title">
+            Snowman
+        </h1>
+        <div class="snowman">
+            <ul>
+                <li>
+                    <label for="num_players" class="subtitle">How many players? (1 or 2)</label>
+                    <br>
+                    <input type="number" id="num_players" name="num_players" required min=1 max=2 value=1 onchange=(checkNumPlayers()) />
+                </li>
+                <li>
+                    <label for="losing_letters" class="subtitle">How many wrong guesses will be allowed? (3-10)</label>
+                    <br>
+                    <input type="number" id="losing_letters" name="losing_letters" required min=3 max=10 value=3 />
+                </li>
+                <li>
+                    <label for="p0_name" class="subtitle">Player 1 Name (Guesses)</label>
+                    <br>
+                    <input type="text" id="p0_name" name="p0_name" required placeholder="Adam G." onchange=(verifyNames()) />
+                </li>
+                <li>
+                    <div class="p1_input"></div>
+                </li>
+                <li>
+                    <button class="submit_button" id="submit_players" type="submit" disabled onclick=(playSnowman())>Play</button>
+                </li>
+            </ul>
+        </div>
+        <script src="{{url_for('static', filename='home.js')}}"></script>
+        <script src="{{url_for('static', filename='snowman.js')}}"></script>
+    </body>
+</html>

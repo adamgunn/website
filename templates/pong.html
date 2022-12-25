@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong | Adam Gunn</title>
+    <meta name="description" content="A two player version of Pong." />
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css">
+</head>
+
+<body>
+    <div id="pong_wrapper">
+        <h1 class="page_title">
+            Pong
+        </h1>
+        <p class="page_content caption">
+            Click or press space/enter to toggle pause.<br />
+            Use WS to control the left paddle, arrows to control the right paddle.<br>
+            First to 5 points with a 2+ point lead wins. Have fun!
+        </p>
+        <div class="pong-container">
+            <canvas class="pong-game">
+                <p class="page_content caption">Your browser doesn't support canvas :(</p>
+            </canvas>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='home.js')}}"></script>
+    <script src="{{url_for('static', filename='pong.js')}}"></script>
+</body>
+
+</html>
