@@ -59,11 +59,11 @@ def hash_password(password, salt=None):
 def index():
     return redirect(url_for('render_static_page', page='home'))
 
-@app.route("/api")
+@app.route("/api/")
 def api_index():
     return redirect(url_for('show_login'))
 
-@app.route("/api/posts")
+@app.route("/api/posts/")
 def get_posts():
     conn = get_read_connection()
     cur = conn.cursor()
@@ -79,7 +79,7 @@ def get_posts():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
-@app.route("/api/login", methods=['POST'])
+@app.route("/api/login/", methods=['POST'])
 def handle_login():
     username = request.form['username']
     password = request.form['password']
@@ -109,17 +109,17 @@ def handle_login():
         return redirect(url_for('show_login'))
 
 
-@app.route("/api/login", methods=['GET'])
+@app.route("/api/login/", methods=['GET'])
 def show_login():
     return render_template('login.html')
 
-@app.route("/api/new", methods=['GET'])
+@app.route("/api/new/", methods=['GET'])
 def show_new():
     if 'username' not in session or session['username'] != os.environ['ADMIN_USERNAME']:
         return redirect(url_for('show_login'))
     return render_template('new.html')
 
-@app.route("/api/new", methods=['POST'])
+@app.route("/api/new/", methods=['POST'])
 def handle_new():
     if 'username' not in session:
         return abort(401)
@@ -158,7 +158,7 @@ def format_posts(posts):
     return new_posts
 
 
-@app.route("/api/delete", methods=['GET'])
+@app.route("/api/delete/", methods=['GET'])
 def show_delete():
     if 'username' not in session or session['username'] != os.environ['ADMIN_USERNAME']:
         return redirect(url_for('show_login'))
@@ -177,7 +177,7 @@ def show_delete():
     }
     return render_template('delete.html', **context)
 
-@app.route("/api/delete", methods=['POST'])
+@app.route("/api/delete/", methods=['POST'])
 def handle_delete():
     if 'username' not in session:
         return abort(401)
@@ -200,7 +200,7 @@ def handle_delete():
     release_write_connection(conn)
     return redirect(url_for('show_delete'))
 
-@app.route("/<page>")
+@app.route("/<page>/")
 def render_static_page(page):
     pages = [
         "home",

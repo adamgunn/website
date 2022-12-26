@@ -205,7 +205,6 @@ window.onresize = (e) => {
         mobile_games.style.display = null;
         mobile_themes.style.display = null;
         mobile_back_button.style.display = null;
-        document.querySelector('body').style.overflow = 'hidden';
     }
 }
 

@@ -34,11 +34,14 @@ body {
     margin: 0;
     background-color: var(--bg-color);
     transition: background-color 0.5s;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; */
     width: fit-content;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+obdy > * {
+    transform: translateZ(0px);
+    -webkit-transform: translateZ(0px);
 }
 
 #header {
@@ -366,7 +369,7 @@ main {
     gap: 0.25rem;
 }
 
-#portfolio_wrapper, #pong_wrapper, #resume_wrapper, #blog_wrapper {
+#portfolio_wrapper, #pong_wrapper, #resume_wrapper {
     margin: 0 3rem 3rem;
     box-sizing: border-box;
 }
@@ -544,6 +547,10 @@ pre {
     transition: all 0.5s;
 }
 
+#blog_wrapper {
+    margin: 0 3rem 3rem;
+}
+
 @media screen and (max-width: 40rem) {
     :root {
         --magazine-letter-width: 3rem;
@@ -584,7 +591,8 @@ pre {
         height: 100%;
         margin-right: 0;
     }
-    html, body {
-        height: 100%;
+    .grid_item:hover {
+        cursor: pointer;
+        transform: none;
     }
 }

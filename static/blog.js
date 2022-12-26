@@ -28,7 +28,7 @@ const setBlogPosts = posts => {
     }
 }
 blog_wrapper.innerText = "Loading...";
-fetch(BACKEND_URL + "/posts", {
+fetch(BACKEND_URL + "/posts/", {
     method: "GET"
 })
     .then(res => res.json())
