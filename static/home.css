@@ -33,7 +33,7 @@
 body {
     margin: 0;
     background-color: var(--bg-color);
-    transition: background-color 0.5s;
+    /* transition: background-color 0.5s; */
     width: fit-content;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
@@ -68,7 +68,7 @@ obdy > * {
 
 .header_link, .dropdown_link, .dropdown_title {
     color: var(--text-color);
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
     text-decoration: none;
     text-transform: lowercase;
 }
@@ -97,7 +97,7 @@ obdy > * {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    transition: fill 0.5s;
+    /* transition: fill 0.5s; */
 }
 
 #mobile_back_button {
@@ -120,14 +120,14 @@ obdy > * {
     padding: 0;
     margin: 0;
     font-size: 3rem;
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
 }
 
 #mobile_links_wrapper {
     z-index: 1;
     position: absolute;
     background-color: var(--bg-color);
-    transition: background-color 0.5s;
+    /* transition: background-color 0.5s; */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -245,7 +245,7 @@ main {
 
 .page_title {
     color: var(--text-color);
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
     font-size: 8rem;
     margin: 0;
     padding: 0;
@@ -265,7 +265,7 @@ main {
 
 .page_content {
     color: var(--text-color);
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
     font-size: 1rem;
     font-family: lust-text, sans-serif, color-emoji;
     text-decoration: none;
@@ -314,8 +314,8 @@ main {
 .contact_link {
     color: var(--text-color);
     display: inline-block;
-    transition-property:  transform, color;
-    transition-duration: 0.23s, 0.5s;
+    /* transition-property:  transform, color; */
+    /* transition-duration: 0.23s, 0.5s; */
     text-decoration: none;
 }
 
@@ -417,7 +417,7 @@ main {
 
 .icon {
     fill: var(--text-color);
-    transition: fill 0.5s;
+    /* transition: fill 0.5s; */
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -442,8 +442,8 @@ main {
 
 .snowman input, #pick_word {
     border: 0.1rem solid var(--text-color);
-    transition-property: border, margin, color, background-color;
-    transition-duration: 0.2s, 0.2s, 0.5s, 0.5s;  
+    /* transition-property: border, margin, color, background-color; */
+    /* transition-duration: 0.2s, 0.2s, 0.5s, 0.5s;   */
     height: 2rem;
     font-size: 2rem;
     margin: 0.5rem 0;
@@ -490,7 +490,7 @@ main {
     font-size: 1.5rem;
     margin-top: 0.5rem;
     text-transform: lowercase;
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 .submit_button:enabled:hover {
@@ -509,7 +509,7 @@ main {
 pre {
     font-size: 1.5rem;
     color: var(--text-color);
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 #resume_embed {
@@ -526,7 +526,7 @@ pre {
     margin: 2rem 0;
     padding: 0 0 2rem;
     border-bottom: 1px solid var(--text-color);
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 .blog_post_wrapper:first-child {
@@ -544,7 +544,7 @@ pre {
 
 .blog_post_title, .blog_post_body, .blog_post_created {
     color: var(--text-color);
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 #blog_wrapper {
@@ -553,6 +553,10 @@ pre {
 
 #portfolio_header {
     margin: 0 3rem 3rem;
+}
+
+#blog_posts_wrapper {
+    color: var(--text-color);
 }
 
 @media screen and (max-width: 40rem) {
@@ -586,14 +590,18 @@ pre {
     #resume_embed {
         margin-left: -3rem;
         width: 100vw;
-        height: 100%;
         aspect-ratio: auto;
-        max-height: none;
+        flex-grow: 1;
     }
     #resume_wrapper {
         margin-bottom: 0;
-        height: 100%;
+        height: calc(100% - (var(--header-height) + 2rem));
         margin-right: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    html:has(#resume_wrapper), body:has(> #resume_wrapper) {
+        height: 100vh;
     }
     .grid_item:hover {
         cursor: pointer;
@@ -601,5 +609,16 @@ pre {
     }
     #portfolio_wrapper {
         margin: 0 0.25rem 0.25rem;
+    }
+    #portfolio_display_wrapper {
+        width: 95%;
+    }
+    #portfolio_display_overlay {
+        width: 100%;
+        padding: var(--overlay-padding) 0;
+    }
+    #portfolio_display_description {
+        display: block;
+        padding: 0 var(--overlay-padding);
     }
 }
