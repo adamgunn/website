@@ -551,6 +551,10 @@ pre {
     margin: 0 3rem 3rem;
 }
 
+#portfolio_header {
+    margin: 0 3rem 3rem;
+}
+
 @media screen and (max-width: 40rem) {
     :root {
         --magazine-letter-width: 3rem;
@@ -594,5 +598,8 @@ pre {
     .grid_item:hover {
         cursor: pointer;
         transform: none;
+    }
+    #portfolio_wrapper {
+        margin: 0 0.25rem 0.25rem;
     }
 }
