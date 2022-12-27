@@ -1,53 +1,100 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio | Adam Gunn</title>
+		<meta name="description" content="Welcome to Adam Gunn's website." />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/static/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/static/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/static/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/static/site.webmanifest" />
+		<link
+			rel="mask-icon"
+			href="/static/safari-pinned-tab.svg"
+			color="#5bbad5"
+		/>
+		<link rel="shortcut icon" href="/static/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#00aba9" />
+		<meta name="msapplication-config" content="/static/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
+		<link
+			href="{{url_for('static', filename='home.css')}}"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Adam Gunn</title>
-    <meta name="description" content="Welcome to Adam Gunn's website." />
-    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon" />
-    <link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css">
-    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet" />
-</head>
-
-<body>
-    <main>
-        <div id="portfolio_header">
-            <h1 class="page_title">
-                Portfolio
-            </h1>
-            <p class="page_content caption">
-                Here's some of my graphic design work done in Adobe Illustrator &amp; Photoshop. Enjoy! :)
-            </p>
-        </div>
-        <div id="portfolio_wrapper">
-            <ul id="portfolio_grid"></ul>
-            <div id="portfolio_display_overlay">
-                <svg id="x_button" width=30 height=30 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.61 91.61">
-                    <defs>
-                        <style>
-                            .cls-1 {
-                                fill: #fff;
-                                stroke: #fff;
-                                stroke-miterlimit: 10;
-                                stroke-width: 15px;
-                            }
-                        </style>
-                    </defs>
-                    <line class="cls-1" x1="5.3" y1="5.3" x2="86.3" y2="86.3" />
-                    <line class="cls-1" x1="86.3" y1="5.3" x2="5.3" y2="86.3" />
-                </svg>
-                <div id="portfolio_display_wrapper">
-                    <img id="portfolio_display" src="{{url_for('static', filename='images/typology.jpg')}}" />
-                </div>
-                <p id="portfolio_display_description">
-                    There was an error loading the descriptiom.
-                </p>
-            </div>
-        </div>
-    </main>
-    <script src="{{url_for('static', filename='home.js')}}"></script>
-</body>
-
+	<body>
+		<main>
+			<div id="portfolio_header">
+				<h1 class="page_title">Portfolio</h1>
+				<p class="page_content caption">
+					Here's some of my graphic design work done in Adobe
+					Illustrator &amp; Photoshop. Enjoy! :)
+				</p>
+			</div>
+			<div id="portfolio_wrapper">
+				<ul id="portfolio_grid"></ul>
+				<div id="portfolio_display_overlay">
+					<svg
+						id="x_button"
+						width="30"
+						height="30"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 91.61 91.61"
+					>
+						<defs>
+							<style>
+								.cls-1 {
+									fill: #fff;
+									stroke: #fff;
+									stroke-miterlimit: 10;
+									stroke-width: 15px;
+								}
+							</style>
+						</defs>
+						<line
+							class="cls-1"
+							x1="5.3"
+							y1="5.3"
+							x2="86.3"
+							y2="86.3"
+						/>
+						<line
+							class="cls-1"
+							x1="86.3"
+							y1="5.3"
+							x2="5.3"
+							y2="86.3"
+						/>
+					</svg>
+					<div id="portfolio_display_wrapper">
+						<img
+							id="portfolio_display"
+							src="{{url_for('static', filename='images/typology.jpg')}}"
+						/>
+					</div>
+					<p id="portfolio_display_description">
+						There was an error loading the descriptiom.
+					</p>
+				</div>
+			</div>
+		</main>
+		<script src="{{url_for('static', filename='home.js')}}"></script>
+	</body>
 </html>
