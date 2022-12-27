@@ -149,6 +149,7 @@ input[type=text], input[type=button], input[type=submit] {
     appearance: none;
     -webkit-border-radius: 0;
     border-radius: 0;
+    font-weight: normal;
 }
 
 .icon {
