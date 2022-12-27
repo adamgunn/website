@@ -111,6 +111,8 @@ def handle_login():
 
 @app.route("/api/login/", methods=['GET'])
 def show_login():
+    if 'username' in session and session['username'] == os.environ['ADMIN_USERNAME']:
+        return redirect(url_for('show_new'))
     return render_template('login.html')
 
 @app.route("/api/new/", methods=['GET'])
@@ -199,6 +201,11 @@ def handle_delete():
     conn.commit()
     release_write_connection(conn)
     return redirect(url_for('show_delete'))
+
+@app.route("/api/logout/", methods=['POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('show_login'))
 
 @app.route("/<page>/")
 def render_static_page(page):

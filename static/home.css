@@ -90,6 +90,10 @@ obdy > * {
     margin: 1rem;
 }
 
+#mobile_header_icon:hover, #mobile_exit_button:hover, #mobile_back_but {
+    cursor: pointer;
+}
+
 #mobile_exit_button, #mobile_back_button {
     fill: var(--text-color);
     width: var(--header-height);
@@ -552,11 +556,54 @@ pre {
 }
 
 #portfolio_header {
-    margin: 0 3rem 3rem;
+    margin: 0 3rem;
 }
 
 #blog_posts_wrapper {
     color: var(--text-color);
+}
+
+#login_link {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: block;
+    text-decoration: none;
+}
+
+#login_link_wrapper {
+    background-color: var(--text-color);
+    height: 3rem;
+    padding: 0.5rem;
+    border-top-left-radius: 1rem;
+}
+
+#login_icon {
+    fill: var(--bg-color);
+    width: 3rem;
+    height: 3rem;
+}
+
+#login_icon:hover {
+    animation-name: wiggle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-15deg);
+    }
 }
 
 @media screen and (max-width: 40rem) {
@@ -620,5 +667,8 @@ pre {
     #portfolio_display_description {
         display: block;
         padding: 0 var(--overlay-padding);
+    }
+    #login_icon:hover {
+        animation: none;
     }
 }
