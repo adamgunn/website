@@ -160,7 +160,6 @@ input[type=text], input[type=button], input[type=submit] {
 html, body {
     background-color: var(--c5);
     margin: 0;
-    height: 100%;
     font-family: var(--fonts);
 }
 

@@ -34,7 +34,7 @@ fetch(BACKEND_URL + "/posts/", {
     .then(res => res.json())
     .then(res => {
         blog_wrapper.innerText = "";
-        setBlogPosts(res.reverse())
+        setBlogPosts(res)
     })
     .catch(err => {
         console.log(err);

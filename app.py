@@ -70,6 +70,7 @@ def get_posts():
     cur.execute(
         """
         SELECT * FROM posts
+        ORDER BY postid DESC;
         """
     )
     posts = cur.fetchall()
@@ -169,6 +170,7 @@ def show_delete():
     cur.execute(
         """
         SELECT * FROM posts
+        ORDER BY postid DESC;
         """
     )
     posts = cur.fetchall()

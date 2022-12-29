@@ -39,11 +39,6 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-obdy > * {
-    transform: translateZ(0px);
-    -webkit-transform: translateZ(0px);
-}
-
 #header {
     width: 100vw;
     display: flex;
@@ -318,8 +313,7 @@ main {
 .contact_link {
     color: var(--text-color);
     display: inline-block;
-    /* transition-property:  transform, color; */
-    /* transition-duration: 0.23s, 0.5s; */
+    transition:  transform 0.23s;
     text-decoration: none;
 }
 

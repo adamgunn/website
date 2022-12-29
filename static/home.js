@@ -337,13 +337,13 @@ function isTouchDevice() {
 if (/about/.test(window.location.pathname) && !isTouchDevice()) {
 
     const title = document.querySelector(".page_title");
-    const NUM_COPIES = 8;
-    for (var i = 1; i <= NUM_COPIES; ++i) {
-        var copy = document.createElement('h1');
-        copy.id = `page_title_copy_${i}`;
-        copy.style.display = "none";
-        title.appendChild(copy);
-    }
+    // const NUM_COPIES = 8;
+    // for (var i = 1; i <= NUM_COPIES; ++i) {
+    //     var copy = document.createElement('h1');
+    //     copy.id = `page_title_copy_${i}`;
+    //     copy.style.display = "none";
+    //     title.appendChild(copy);
+    // }
     document.onmousemove = (e) => {
         // e.preventDefault();
         const width = window.innerWidth;
@@ -483,10 +483,30 @@ if (/portfolio/.test(window.location.pathname)) {
 }
 
 if (/pong/.test(window.location.pathname) && isTouchDevice()) {
-    console.log("fail");
     document.querySelector(".pong-container").innerHTML = `
     <p class="page_content caption">
             You're on a touchsceen device so this won't work :(
     </p>
     `
+}
+
+/* 
+============================================================
+Resume iframe checking
+============================================================
+*/
+
+if (/resume/.test(window.location.pathname)) {
+    const iframe = document.getElementById('resume_embed');
+    setTimeout(() => {
+        if (iframe.contentDocument !== null) {
+            iframe.remove();
+            const html = `
+                <p class="page_content caption">
+                    The PDF couldn't load. :( Try refreshing?
+                </p>
+            `;
+            document.getElementById('resume_wrapper').innerHTML += html;
+        }
+    }, 5000);
 }
