@@ -1,138 +1,98 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Home | Adam Gunn</title>
-		<meta name="description" content="Welcome to Adam Gunn's website." />
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/static/apple-touch-icon.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/static/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/static/favicon-16x16.png"
-		/>
-		<link rel="manifest" href="/static/site.webmanifest" />
-		<link
-			rel="mask-icon"
-			href="/static/safari-pinned-tab.svg"
-			color="#5bbad5"
-		/>
-		<link rel="shortcut icon" href="/static/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#00aba9" />
-		<meta name="msapplication-config" content="/static/browserconfig.xml" />
-		<meta name="theme-color" content="#ffffff" />
-		<link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
-		<link
-			href="{{url_for('static', filename='home.css')}}"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<main>
-			<div id="magazine_wrapper">
-				<a href="/about" id="about_link">
-					<img
-						class="magazine"
-						id="A1"
-						src="{{url_for('static', filename='images/magazine/letters/A0.png')}}"
-						alt="A"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="D"
-						src="{{url_for('static', filename='images/magazine/letters/D0.png')}}"
-						alt="D"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="A2"
-						src="{{url_for('static', filename='images/magazine/letters/A1.png')}}"
-						alt="A"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="M"
-						src="{{url_for('static', filename='images/magazine/letters/M0.png')}}"
-						alt="M"
-						width="150"
-						height="150"
-					/>
-					<br />
-					<img
-						class="magazine"
-						id="G"
-						src="{{url_for('static', filename='images/magazine/letters/G0.png')}}"
-						alt="G"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="U"
-						src="{{url_for('static', filename='images/magazine/letters/U0.png')}}"
-						alt="U"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="N1"
-						src="{{url_for('static', filename='images/magazine/letters/N0.png')}}"
-						alt="N"
-						width="150"
-						height="150"
-					/>\
-					<img
-						class="magazine"
-						id="N2"
-						src="{{url_for('static', filename='images/magazine/letters/N1.png')}}"
-						alt="N"
-						width="150"
-						height="150"
-					/>
-					<img
-						class="magazine"
-						id="PUNC"
-						src="{{url_for('static', filename='images/magazine/punctuation/0.png')}}"
-						alt="punctuation"
-						width="100"
-						height="100"
-					/>
-				</a>
-			</div>
-		</main>
-		<a href="/api/login/" id="login_link">
-			<div id="login_link_wrapper">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					id="login_icon"
-					viewBox="0 0 16 16"
-				>
-					<path
-						d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
-					/>
-				</svg>
-			</div>
-		</a>
-		<script src="{{url_for('static', filename='home.js')}}"></script>
-	</body>
-</html>
+{% extends "skeleton_main.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+	<main>
+		<div id="magazine_wrapper">
+			<a href="/about" id="about_link">
+				<img
+					class="magazine"
+					id="A1"
+					src="{{url_for('static', filename='images/magazine/letters/A0.png')}}"
+					alt="A"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="D"
+					src="{{url_for('static', filename='images/magazine/letters/D0.png')}}"
+					alt="D"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="A2"
+					src="{{url_for('static', filename='images/magazine/letters/A1.png')}}"
+					alt="A"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="M"
+					src="{{url_for('static', filename='images/magazine/letters/M0.png')}}"
+					alt="M"
+					width="150"
+					height="150"
+				/>
+				<br />
+				<img
+					class="magazine"
+					id="G"
+					src="{{url_for('static', filename='images/magazine/letters/G0.png')}}"
+					alt="G"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="U"
+					src="{{url_for('static', filename='images/magazine/letters/U0.png')}}"
+					alt="U"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="N1"
+					src="{{url_for('static', filename='images/magazine/letters/N0.png')}}"
+					alt="N"
+					width="150"
+					height="150"
+				/>\
+				<img
+					class="magazine"
+					id="N2"
+					src="{{url_for('static', filename='images/magazine/letters/N1.png')}}"
+					alt="N"
+					width="150"
+					height="150"
+				/>
+				<img
+					class="magazine"
+					id="PUNC"
+					src="{{url_for('static', filename='images/magazine/punctuation/0.png')}}"
+					alt="punctuation"
+					width="100"
+					height="100"
+				/>
+			</a>
+		</div>
+	</main>
+	<a href="/api/login/" id="login_link">
+		<div id="login_link_wrapper">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="16"
+				height="16"
+				id="login_icon"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+				/>
+			</svg>
+		</div>
+	</a>
+{% endblock %}

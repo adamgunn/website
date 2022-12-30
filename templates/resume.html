@@ -1,53 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Resum&eacute; | Adam Gunn</title>
-		<meta name="description" content="Welcome to Adam Gunn's website." />
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/static/apple-touch-icon.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/static/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/static/favicon-16x16.png"
-		/>
-		<link rel="manifest" href="/static/site.webmanifest" />
-		<link
-			rel="mask-icon"
-			href="/static/safari-pinned-tab.svg"
-			color="#5bbad5"
-		/>
-		<link rel="shortcut icon" href="/static/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#00aba9" />
-		<meta name="msapplication-config" content="/static/browserconfig.xml" />
-		<meta name="theme-color" content="#ffffff" />
-		<link
-			href="{{url_for('static', filename='home.css')}}"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
-	</head>
-
-	<body>
-		<div id="resume_wrapper">
-			<h1 class="page_title">Resum&eacute;</h1>
-			<iframe
-				src="https://docs.google.com/gview?url=https://adamgunn.net/static/resume-adam-gunn.pdf&embedded=true"
-				id="resume_embed"
-				title="Resume PDF Embed"
-			></iframe>
-		</div>
-		<script src="{{url_for('static', filename='home.js')}}"></script>
-	</body>
-</html>
+{% extends "skeleton_main.html" %}
+{% block title %}Resum&eacute;{% endblock %}
+{% block content %}
+	<div id="resume_wrapper">
+		<h1 class="page_title">Resum&eacute;</h1>
+		<iframe
+			src="https://docs.google.com/gview?url=https://adamgunn.net/static/resume-adam-gunn.pdf&embedded=true"
+			id="resume_embed"
+			title="Resume PDF Embed"
+		></iframe>
+	</div>
+{% endblock %}

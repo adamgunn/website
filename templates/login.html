@@ -1,81 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/static/apple-touch-icon.png"
+{% extends "skeleton_admin.html" %}
+{% block title %}Login{% endblock %}
+{% block rest_of_nav %}{% endblock %}
+{% block content %}	
+	<form action="/api/login/" method="post" id="login_form">
+		<h1 id="login_header">Log in</h1>
+		<input
+			type="text"
+			placeholder="Username"
+			id="username"
+			name="username"
+			required
 		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/static/favicon-32x32.png"
+		<input
+			type="password"
+			placeholder="Password"
+			id="password"
+			name="password"
+			required
 		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/static/favicon-16x16.png"
-		/>
-		<link rel="manifest" href="/static/site.webmanifest" />
-		<link
-			rel="mask-icon"
-			href="/static/safari-pinned-tab.svg"
-			color="#5bbad5"
-		/>
-		<link rel="shortcut icon" href="/static/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#00aba9" />
-		<meta name="msapplication-config" content="/static/browserconfig.xml" />
-		<meta name="theme-color" content="#240B36" />
-		<link
-			rel="stylesheet"
-			href="{{url_for('static', filename='style.css')}}"
-		/>
-		<title>Login</title>
-	</head>
-	<body>
-		<nav id="new_nav">
-			<a href="/" title="Return to main site">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					class="icon"
-					viewBox="0 0 16 16"
-				>
-					<path
-						fill-rule="evenodd"
-						d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
-					/>
-					<path
-						fill-rule="evenodd"
-						d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
-					/>
-				</svg>
-			</a>
-		</nav>
-		<form action="/api/login/" method="post" id="login_form">
-			<h1 id="login_header">Log in</h1>
-			<input
-				type="text"
-				placeholder="Username"
-				id="username"
-				name="username"
-				required
-			/>
-			<input
-				type="password"
-				placeholder="Password"
-				id="password"
-				name="password"
-				required
-			/>
-			<input type="submit" value="Submit" id="login_button" />
-		</form>
-	</body>
-</html>
+		<input type="submit" value="Submit" id="login_button" />
+	</form>
+{% endblock %}

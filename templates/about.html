@@ -1,91 +1,51 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>About | Adam Gunn</title>
-		<meta name="description" content="Welcome to Adam Gunn's website." />
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/static/apple-touch-icon.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/static/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/static/favicon-16x16.png"
-		/>
-		<link rel="manifest" href="/static/site.webmanifest" />
-		<link
-			rel="mask-icon"
-			href="/static/safari-pinned-tab.svg"
-			color="#5bbad5"
-		/>
-		<link rel="shortcut icon" href="/static/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#00aba9" />
-		<meta name="msapplication-config" content="/static/browserconfig.xml" />
-		<meta name="theme-color" content="#ffffff" />
-		<link rel="stylesheet" href="https://use.typekit.net/uvg2mwq.css" />
-		<link
-			href="{{url_for('static', filename='home.css')}}"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<main>
-			<div id="about_wrapper">
-				<h1 class="page_title">About</h1>
-				<br />
-				<p class="page_content">
-					Hey! I'm Adam. I'm a computer science student from Chicago!
-					🙌 This website exists to showcase some of my front-end web
-					development skills. 🤓💻 If you want to contact me, you've
-					come to the right place. Here's some of my links 👇
-				</p>
-				<ul id="contact_links_ul">
-					<li class="contact_item">
-						<a
-							title="My Email"
-							href="mailto:asgunn@umich.edu"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="contact_link"
-						>
-							Email
-						</a>
-					</li>
-					<li class="contact_item">
-						<a
-							title="My GitHub"
-							href="https://github.com/adamgunn"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="contact_link"
-						>
-							GitHub
-						</a>
-					</li>
-					<li class="contact_item">
-						<a
-							title="My LinkedIn"
-							href="https://linkedin.com/in/a-gunn/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="contact_link"
-						>
-							LinkedIn
-						</a>
-					</li>
-				</ul>
-			</div>
-		</main>
-		<script src="{{url_for('static', filename='home.js')}}"></script>
-	</body>
-</html>
+{% extends "skeleton_main.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+	<main>
+		<div id="about_wrapper">
+			<h1 class="page_title">About</h1>
+			<br />
+			<p class="page_content">
+				Hey! I'm Adam. I'm a computer science student from Chicago!
+				🙌 This website exists to showcase some of my front-end web
+				development skills. 🤓💻 If you want to contact me, you've
+				come to the right place. Here's some of my links 👇
+			</p>
+			<ul id="contact_links_ul">
+				<li class="contact_item">
+					<a
+						title="My Email"
+						href="mailto:asgunn@umich.edu"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contact_link"
+					>
+						Email
+					</a>
+				</li>
+				<li class="contact_item">
+					<a
+						title="My GitHub"
+						href="https://github.com/adamgunn"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contact_link"
+					>
+						GitHub
+					</a>
+				</li>
+				<li class="contact_item">
+					<a
+						title="My LinkedIn"
+						href="https://linkedin.com/in/a-gunn/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contact_link"
+					>
+						LinkedIn
+					</a>
+				</li>
+			</ul>
+		</div>
+	</main>
+{% endblock %}
