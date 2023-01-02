@@ -7,7 +7,7 @@ Header HTML injection
 const HEADER_HTML = `
     <ul id="header_ul_left" class="header_ul">
         <li class="header_item">
-            <a class="header_link" href="/home">Home</a>
+            <a class="header_link" href="/">Home</a>
         </li>
         <li class="header_item">
             <a class="header_link" href="/about">About</a>

@@ -57,7 +57,11 @@ def hash_password(password, salt=None):
 
 @app.route("/")
 def index():
-    return redirect(url_for('render_static_page', page='home'))
+    return render_template('home.html')
+
+@app.route("/home/")
+def redirect_home():
+    return redirect(url_for('index'))
 
 @app.route("/api/")
 def api_index():
@@ -212,7 +216,6 @@ def logout():
 @app.route("/<page>/")
 def render_static_page(page):
     pages = [
-        "home",
         "about",
         "blog",
         "portfolio",
