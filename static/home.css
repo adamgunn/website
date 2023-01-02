@@ -19,11 +19,12 @@
     font-family: franklin-gothic-condensed, sans-serif, color-emoji;
     --magazine-letter-width: clamp(15px, 9vw, 150px);
     --magazine-punc-width: calc(calc(var(--magazine-letter-width) * 2) / 3);
-    --header-height: 3.5rem;
+    --header-height: 4rem;
     --bg-color: white;
     --text-color: black;
     --grid-item-size: 15rem;
     --overlay-padding: 3rem;
+    --header-image-size: 2rem;
 }
 
 * {
@@ -66,6 +67,16 @@ body {
     /* transition: color 0.5s; */
     text-decoration: none;
     text-transform: lowercase;
+    height: var(--header-image-size);
+    display: inline-block;
+    line-height: var(--header-image-size);
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.dropdown_item {
+    height: auto;
+    display: block;
 }
 
 
@@ -151,10 +162,6 @@ body {
     width: auto;
     height: max-content;
     float: right;
-}
-
-.dropdown_item {
-    display: block;
 }
 
 .dropdown_item:hover {
@@ -600,6 +607,24 @@ pre {
     }
 }
 
+#header_image {
+    width: var(--header-image-size);
+    height: var(--header-image-size);
+    transition-property: transform, filter;
+    transition-duration: 0.25s, 0.25s;
+}
+
+.header_item:hover #header_image {
+    /* filter: invert(100%); */
+    transform: rotateY(180deg);
+    /* transform-style: preserve-3d; */
+}
+
+
+.header_item:has( #header_image) {
+    height: var(--header-image-size);
+}
+
 @media screen and (max-width: 40rem) {
     :root {
         --magazine-letter-width: 3rem;
@@ -664,5 +689,10 @@ pre {
     }
     #login_icon:hover {
         animation: none;
+    }
+    .dropdown_link, .dropdown_title {
+        height: auto;
+        display: initial;
+        line-height: normal;
     }
 }

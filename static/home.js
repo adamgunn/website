@@ -7,7 +7,9 @@ Header HTML injection
 const HEADER_HTML = `
     <ul id="header_ul_left" class="header_ul">
         <li class="header_item">
-            <a class="header_link" href="/">Home</a>
+            <a class="header_link" href="/">
+                <img src="/static/images/magazine/letters/A1.png" id="header_image" alt="Home" />
+            </a>
         </li>
         <li class="header_item">
             <a class="header_link" href="/about">About</a>
@@ -73,7 +75,7 @@ const MOBILE_LINKS_HTML = `
         </svg>
     <ul class="mobile_links_ul" id="mobile_main">
         <li class="header_item">
-            <a class="header_link" href="/home">Home</a>
+            <a class="header_link" href="/">Home</a>
         </li>
         <li class="header_item">
             <a class="header_link" href="/about">About</a>
@@ -216,7 +218,7 @@ Home page animation
 ============================================================
 */
 
-if (/home/.test(window.location.pathname)) {
+if (window.location.pathname === "/") {
 
     const NUM_PICS = {
         "A": 10,
