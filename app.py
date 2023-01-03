@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for, session, abort, Response, json
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session, abort, Response
 import os
 import psycopg2
 import psycopg2.pool
@@ -7,6 +7,8 @@ import hashlib
 from dotenv import load_dotenv
 import time
 import random
+import re
+import json
 from waitress import serve
 
 load_dotenv()
@@ -86,9 +88,22 @@ def index():
     while letters[7] == letters[6]:
         letters[7] = image_location(random.randrange(NUM_PICS["N"]), letter="N")
     punctuation = image_location(random.randrange(NUM_PICS["PUNC"]), punc=True)
+    exp = r'\d+'
+    indexes = {
+        "A1": int(re.findall(exp, letters[0])[0]),
+        "D": int(re.findall(exp, letters[1])[0]),
+        "A2": int(re.findall(exp, letters[2])[0]),
+        "M": int(re.findall(exp, letters[3])[0]),
+        "G": int(re.findall(exp, letters[4])[0]),
+        "U": int(re.findall(exp, letters[5])[0]),
+        "N1": int(re.findall(exp, letters[6])[0]),
+        "N2": int(re.findall(exp, letters[7])[0]),
+        "PUNC": int(re.findall(exp, punctuation)[0]),
+    }
     context = {
         "letters": letters,
-        "punctuation": punctuation
+        "punctuation": punctuation,
+        "indexes": indexes
     }
     return render_template('home.html', **context)
 

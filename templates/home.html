@@ -1,5 +1,10 @@
 {% extends "skeleton_main.html" %}
 {% block pipe %}{% endblock %}
+{% block extrascript %}
+<script>
+	var letter_indexes = {{indexes|tojson}};
+</script>
+{% endblock %}
 {% block content %}
 	<div id="home_wrapper">
 		<div id="magazine_centerer">

@@ -128,17 +128,17 @@ if (window.location.pathname === "/") {
     const repeated_letters = ["A", "N"];
     const all_letter_ids = ["A1", "D", "A2", "M", "G", "U", "N1", "N2", "PUNC"];
 
-    var letter_indexes = {
-        "A1": 0,
-        "D": 0,
-        "A2": 1,
-        "M": 0,
-        "G": 0,
-        "U": 0,
-        "N1": 0,
-        "N2": 1,
-        "PUNC": 0
-    }
+    // var letter_indexes = {
+    //     "A1": 0,
+    //     "D": 0,
+    //     "A2": 1,
+    //     "M": 0,
+    //     "G": 0,
+    //     "U": 0,
+    //     "N1": 0,
+    //     "N2": 1,
+    //     "PUNC": 0
+    // }
 
     const new_single_repeated_letter = (letter_id) => {
         if (letter_id.length !== 2 || (letter_id[1] !== "1" && letter_id[1] !== "2")) {
