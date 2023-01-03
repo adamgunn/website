@@ -779,4 +779,10 @@ pre {
     #home_wrapper {
         height: calc(100vh - (var(--header-height) + 2rem));
     }
+    #pause_play_button:hover #pause_play_icon {
+        fill: var(--bg-color);
+    }
+    #pause_play_button:hover {
+        background-color: var(--text-color);
+    }
 }
