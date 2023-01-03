@@ -6,6 +6,7 @@ import uuid
 import hashlib
 from dotenv import load_dotenv
 import time
+import random
 from waitress import serve
 
 load_dotenv()
@@ -55,9 +56,41 @@ def hash_password(password, salt=None):
     password_hash = hash_obj.hexdigest()
     return "$".join([algorithm, salt, password_hash])
 
+def image_location(index, letter=None, punc=False):
+    if punc:
+        return f'images/magazine/punctuation/{index}.png'
+    return f'images/magazine/letters/{letter}{index}.png'
+
 @app.route("/")
 def index():
-    return render_template('home.html')
+    NUM_PICS = {
+        "A": 10,
+        "D": 8,
+        "M": 8,
+        "G": 9,
+        "U": 8,
+        "N": 5,
+        "PUNC": 26
+    }
+    letters = []
+    letters.append(image_location(random.randrange(NUM_PICS["A"]), letter="A"))
+    letters.append(image_location(random.randrange(NUM_PICS["D"]), letter="D"))
+    letters.append(image_location(random.randrange(NUM_PICS["A"]), letter="A"))
+    while letters[2] == letters[0]:
+        letters[2] = image_location(random.randrange(NUM_PICS["A"]), letter="A")
+    letters.append(image_location(random.randrange(NUM_PICS["M"]), letter="M"))
+    letters.append(image_location(random.randrange(NUM_PICS["G"]), letter="G"))
+    letters.append(image_location(random.randrange(NUM_PICS["U"]), letter="U"))
+    letters.append(image_location(random.randrange(NUM_PICS["N"]), letter="N"))
+    letters.append(image_location(random.randrange(NUM_PICS["N"]), letter="N"))
+    while letters[7] == letters[6]:
+        letters[7] = image_location(random.randrange(NUM_PICS["N"]), letter="N")
+    punctuation = image_location(random.randrange(NUM_PICS["PUNC"]), punc=True)
+    context = {
+        "letters": letters,
+        "punctuation": punctuation
+    }
+    return render_template('home.html', **context)
 
 @app.route("/home/")
 def redirect_home():

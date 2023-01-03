@@ -1,85 +1,92 @@
 {% extends "skeleton_main.html" %}
-{% block title %}Home{% endblock %}
+{% block pipe %}{% endblock %}
 {% block content %}
-	<main>
-		<div id="magazine_wrapper">
-			<a href="/about" id="about_link">
-				<img
-					class="magazine"
-					id="A1"
-					src="{{url_for('static', filename='images/magazine/letters/A0.png')}}"
-					alt="A"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="D"
-					src="{{url_for('static', filename='images/magazine/letters/D0.png')}}"
-					alt="D"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="A2"
-					src="{{url_for('static', filename='images/magazine/letters/A1.png')}}"
-					alt="A"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="M"
-					src="{{url_for('static', filename='images/magazine/letters/M0.png')}}"
-					alt="M"
-					width="150"
-					height="150"
-				/>
-				<br />
-				<img
-					class="magazine"
-					id="G"
-					src="{{url_for('static', filename='images/magazine/letters/G0.png')}}"
-					alt="G"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="U"
-					src="{{url_for('static', filename='images/magazine/letters/U0.png')}}"
-					alt="U"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="N1"
-					src="{{url_for('static', filename='images/magazine/letters/N0.png')}}"
-					alt="N"
-					width="150"
-					height="150"
-				/>\
-				<img
-					class="magazine"
-					id="N2"
-					src="{{url_for('static', filename='images/magazine/letters/N1.png')}}"
-					alt="N"
-					width="150"
-					height="150"
-				/>
-				<img
-					class="magazine"
-					id="PUNC"
-					src="{{url_for('static', filename='images/magazine/punctuation/0.png')}}"
-					alt="punctuation"
-					width="100"
-					height="100"
-				/>
-			</a>
+	<div id="home_wrapper">
+		<div id="magazine_centerer">
+			<div id="magazine_wrapper">
+				<a href="/about" id="about_link">
+					<img
+						class="magazine"
+						id="A1"
+						src="{{url_for('static', filename=letters.0)}}"
+						alt="A"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="D"
+						src="{{url_for('static', filename=letters.1)}}"
+						alt="D"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="A2"
+						src="{{url_for('static', filename=letters.2)}}"
+						alt="A"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="M"
+						src="{{url_for('static', filename=letters.3)}}"
+						alt="M"
+						width="150"
+						height="150"
+					/>
+					<br />
+					<img
+						class="magazine"
+						id="G"
+						src="{{url_for('static', filename=letters.4)}}"
+						alt="G"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="U"
+						src="{{url_for('static', filename=letters.5)}}"
+						alt="U"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="N1"
+						src="{{url_for('static', filename=letters.6)}}"
+						alt="N"
+						width="150"
+						height="150"
+					/>\
+					<img
+						class="magazine"
+						id="N2"
+						src="{{url_for('static', filename=letters.7)}}"
+						alt="N"
+						width="150"
+						height="150"
+					/>
+					<img
+						class="magazine"
+						id="PUNC"
+						src="{{url_for('static', filename=punctuation)}}"
+						alt="punctuation"
+						width="100"
+						height="100"
+					/>
+				</a>
+				<button id="play_button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="play_icon" viewBox="0 0 16 16">
+						<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+					</svg>
+				</button>
+			</div>
 		</div>
-	</main>
+	</div>
 	<a href="/api/login/" id="login_link">
 		<div id="login_link_wrapper">
 			<svg
@@ -95,4 +102,9 @@
 			</svg>
 		</div>
 	</a>
+	<button id="pause_play_button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="pause_play_icon" viewBox="0 0 16 16">
+			<path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+		</svg>
+	</button>
 {% endblock %}

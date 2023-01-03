@@ -1,143 +1,4 @@
-/* 
-============================================================
-Header HTML injection
-============================================================
-*/
 
-const HEADER_HTML = `
-    <ul id="header_ul_left" class="header_ul">
-        <li class="header_item">
-            <a class="header_link" href="/">
-                <img src="/static/images/magazine/letters/A1.png" id="header_image" alt="Home" />
-            </a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/about">About</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/blog">Blog</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/portfolio">Portfolio</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/resume">Resum&eacute;</a>
-        </li>
-    </ul>
-    <ul id="header_ul_right" class="header_ul">
-        <li class="header_item dropdown_title">
-            Games
-            <ul class="dropdown_ul">
-                <li class="dropdown_item">
-                    <a class="dropdown_link" href="/pong">Pong</a>
-                </li>
-                <li class="dropdown_item">
-                    <a class="dropdown_link" href="/snowman">Snowman</a>
-                </li>
-            </ul>
-        </li>
-        <li class="header_item dropdown_title">
-            Choose Theme
-            <ul class="dropdown_ul">
-                <li class="dropdown_item default">
-                    Default
-                </li>
-                <li class="dropdown_item dark">
-                    Dark
-                </li>
-                <li class="dropdown_item darker">
-                    Darker
-                </li>
-                <li class="dropdown_item earthy">
-                    Earthy
-                </li>
-                <li class="dropdown_item random">
-                    Random
-                </li>
-            </ul>
-        </li>
-    </ul>
-`;
-
-const MOBILE_HEADER_HTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" id="mobile_header_icon" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-    </svg>
-`;
-
-const MOBILE_LINKS_HTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" id="mobile_exit_button" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" id="mobile_back_button" class="bi bi-arrow-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-        </svg>
-    <ul class="mobile_links_ul" id="mobile_main">
-        <li class="header_item">
-            <a class="header_link" href="/">Home</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/about">About</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/blog">Blog</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/portfolio">Portfolio</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/resume">Resum&eacute;</a>
-        </li>
-        <li class="header_item dropdown_title" id="games_button">
-            Games
-        </li>
-        <li class="header_item dropdown_title" id="themes_button">
-            Choose Theme
-        </li>
-    </ul>
-    <ul class="mobile_links_ul" id="mobile_games">
-        <li class="header_item">
-            <a class="header_link" href="/pong">Pong</a>
-        </li>
-        <li class="header_item">
-            <a class="header_link" href="/snowman">Snowman</a>
-        </li>
-    </ul>
-    <ul class="mobile_links_ul" id="mobile_themes">
-        <li class="header_item header_link default">
-            Default
-        </li>
-        <li class="header_item header_link dark">
-            Dark
-        </li>
-        <li class="header_item header_link darker">
-            Darker
-        </li>
-        <li class="header_item header_link earthy">
-            Earthy
-        </li>
-        <li class="header_item header_link random">
-            Random
-        </li>
-    </ul>
-`
-const body = document.querySelector('body');
-
-const create_mobile_links_wrapper = document.createElement("div");
-create_mobile_links_wrapper.id = "mobile_links_wrapper";
-create_mobile_links_wrapper.innerHTML = MOBILE_LINKS_HTML;
-body.insertBefore(create_mobile_links_wrapper, body.firstChild);
-
-const create_mobile_header = document.createElement("header");
-create_mobile_header.id = "mobile_header";
-create_mobile_header.innerHTML = MOBILE_HEADER_HTML;
-body.insertBefore(create_mobile_header, body.firstChild);
-
-const create_header = document.createElement("header");
-create_header.id = "header";
-create_header.innerHTML = HEADER_HTML;
-body.insertBefore(create_header, body.firstChild);
 
 /* 
 ============================================================
@@ -219,6 +80,35 @@ Home page animation
 */
 
 if (window.location.pathname === "/") {
+    let paused = true;
+    const play_button = document.getElementById("play_button");
+    const pause_play_button = document.getElementById("pause_play_button");
+    const pause_play_icon = document.getElementById("pause_play_icon");
+    const pause = e => {
+        e.preventDefault();
+        paused = true;
+        pause_play_icon.innerHTML = `
+            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+        `;
+        pause_play_button.onclick = play;
+    }
+    const play = e => {
+        e.preventDefault();
+        paused = false;
+        pause_play_icon.innerHTML = `
+            <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+        `;
+        pause_play_button.onclick = pause;
+    }
+    play_button.onclick = e => {
+        e.preventDefault();
+        paused = false;
+        play_button.style.display = "none";
+        document.getElementById('about_link').style.pointerEvents = "auto";
+        pause_play_button.style.opacity = "1";
+        pause_play_button.style.pointerEvents = "auto";
+    }
+    pause_play_button.onclick = pause;
 
     const NUM_PICS = {
         "A": 10,
@@ -317,11 +207,12 @@ if (window.location.pathname === "/") {
         }
     }
 
-    all_new_letters();
     const NUM_SPOTS = 9;
     var interval = setInterval(() => {
-        const changing_char = Math.floor(Math.random() * NUM_SPOTS);
-        new_single_letter(changing_char);
+        if (!paused && !document.hidden) {
+            const changing_char = Math.floor(Math.random() * NUM_SPOTS);
+            new_single_letter(changing_char);
+        }
     }, 1000);
 }
 
@@ -357,16 +248,6 @@ if (/about/.test(window.location.pathname) && !isTouchDevice()) {
     }
 }
 
-/* 
-============================================================
-Theme buttons
-============================================================
-*/
-
-const color_var_names = ['--bg-color', '--text-color'];
-const root = document.documentElement;
-
-// [background color, text color]
 const colors = {
     "default": ["#ffffff", "#000000"],
     "dark": ["#222222", "#ffffff"],
@@ -374,17 +255,6 @@ const colors = {
     "earthy": ["#A0A083", "#EAE0CC"],
 }
 const options = Object.keys(colors);
-var saved_colors = [];
-color_var_names.forEach((var_name, index) => {
-    saved_colors[index] = localStorage.getItem(var_name) ?
-        localStorage.getItem(var_name) : null;
-})
-if (saved_colors[0]) {
-    saved_colors.forEach((color, index) => {
-        root.style.setProperty(color_var_names[index], color);
-    })
-}
-
 
 options.forEach((option) => {
     const buttons = [...document.querySelectorAll("." + option)];
