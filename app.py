@@ -266,7 +266,7 @@ def render_static_page(page):
     pages = [
         "about",
         "blog",
-        "portfolio",
+        "design",
         "resume",
         "pong",
         "snowman"
